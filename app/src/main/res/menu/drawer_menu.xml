@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/services"
+        android:title="@string/menu_item_services"/>
+    <item
+        android:id="@+id/clients"
+        android:title="@string/menu_item_clients"/>
+    <item
+        android:id="@+id/tasks"
+        android:title="@string/menu_item_tasks"/>
+    <item
+        android:id="@+id/projects"
+        android:title="@string/menu_item_projects"/>
+    <item
+        android:id="@+id/profit_calculator"
+        android:title="@string/menu_item_profit_calculator"/>
+
+
+
+</menu>

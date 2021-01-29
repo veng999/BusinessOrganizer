@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Business Organizer</string>
+    <string name="menu_item_services">Услуги</string>
+    <string name="menu_item_clients">Клиенты</string>
+    <string name="menu_item_tasks">Задачи</string>
+    <string name="menu_item_projects">Проекты</string>
+    <string name="menu_item_profit_calculator">Калькулятор прибыли</string>
+</resources>

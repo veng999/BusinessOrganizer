@@ -5,4 +5,9 @@
     <string name="menu_item_tasks">Задачи</string>
     <string name="menu_item_projects">Проекты</string>
     <string name="menu_item_profit_calculator">Калькулятор прибыли</string>
+    <string name="calendar_label">Календарь</string>
+    <string name="fragment_calendar_label">Календарь</string>
+    <string name="fragment_clients_label">Клиенты</string>
+    <string name="fragment_sessions_label">Сеансы</string>
+    <string name="fragment_profit_label">Прибыль</string>
 </resources>

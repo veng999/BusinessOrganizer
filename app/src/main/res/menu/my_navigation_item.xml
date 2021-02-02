@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_sessions"
+        android:icon="@drawable/ic_layers_24dp"
+        android:title="@string/fragment_sessions_label" />
+
+    <item
+        android:id="@+id/menu_calendar"
+        android:icon="@drawable/ic_calendar_24dp"
+        android:title="@string/fragment_calendar_label" />
+
+    <item
+        android:id="@+id/menu_clients"
+        android:icon="@drawable/ic_clients_24dp"
+        android:title="@string/fragment_clients_label" />
+
+    <item
+        android:id="@+id/menu_profit"
+        android:icon="@drawable/ic_profit_24dp"
+        android:title="@string/fragment_profit_label" />
+
+</menu>

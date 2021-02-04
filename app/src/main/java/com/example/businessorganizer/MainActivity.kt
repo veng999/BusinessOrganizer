@@ -1,5 +1,6 @@
 package com.example.businessorganizer
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -14,8 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     private val navController by lazy {
         (supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment)
-            .navController
+                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment)
+                .navController
     }
 
     private val binding: ActivityMainBinding by lazy {
@@ -24,8 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     private val appBarConfiguration by lazy {
         AppBarConfiguration(
-            setOf(
-            R.id.menu_calendar), binding.drawerLayout
+                setOf(
+                        R.id.menu_calendar), binding.drawerLayout
         )
     }
 
@@ -38,10 +39,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupBottomNavMenu(navController)
         setupActionBarWithNavController(navController, appBarConfiguration)
+        setStatusBarColor()
+        setActionBarColor()
+    }
+
+    private fun setActionBarColor() {
+        val colorDrawable = ColorDrawable(resources.getColor(R.color.rose_red))
+        supportActionBar?.setBackgroundDrawable(colorDrawable)
+    }
+
+    private fun setStatusBarColor() {
+        window.apply {
+            statusBarColor = resources.getColor(R.color.rose_red)
+        }
     }
 
     override fun onSupportNavigateUp() =
-        navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+            navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
     private fun setupBottomNavMenu(navController: NavController) = bottomNavView.setupWithNavController(navController)
 }

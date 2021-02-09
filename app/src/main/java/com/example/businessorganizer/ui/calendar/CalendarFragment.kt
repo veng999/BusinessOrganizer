@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.businessorganizer.R
 import com.example.businessorganizer.adapters.CalendarAdapter
+import com.example.businessorganizer.calendar.binders.DayBinder
+import com.example.businessorganizer.calendar.binders.MonthHeaderBinder
 import com.example.businessorganizer.databinding.FragmentCalendarBinding
-import com.example.businessorganizer.ui.BusinessDayBinder
 import com.example.businessorganizer.ui.extension.daysOfWeekFromLocale
 import com.example.businessorganizer.ui.extension.setTextColorRes
 import com.example.businessorganizer.utils.BusinessDateUtils.getCurrentMonth
@@ -24,6 +25,7 @@ import com.example.businessorganizer.utils.BusinessDateUtils.getFirstDayOfWeek
 import com.example.businessorganizer.utils.BusinessDateUtils.getFirstMonth
 import com.example.businessorganizer.utils.BusinessDateUtils.getLastMonth
 import com.example.businessorganizer.utils.DrawableUtils
+import com.example.businessorganizer.utils.LOCALE
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.*
@@ -67,7 +69,7 @@ class CalendarFragment : Fragment() {
 
     private fun setRecyclerView() {
         binding?.let { binding ->
-            binding.exFiveRv.apply {
+            binding.rvTasks.apply {
                 layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
                 adapter = CalendarAdapter()
                 addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
@@ -78,7 +80,8 @@ class CalendarFragment : Fragment() {
     private fun setCalendarView() {
         binding?.let { binding ->
             with(binding.calendarView) {
-                dayBinder = BusinessDayBinder(binding)
+                dayBinder = DayBinder(binding)
+                monthHeaderBinder = MonthHeaderBinder(binding)
                 setup(getFirstMonth(), getLastMonth(), getFirstDayOfWeek())
                 scrollToMonth(getCurrentMonth())
             }
@@ -90,7 +93,7 @@ class CalendarFragment : Fragment() {
         binding?.let { binding ->
             binding.legendLayout.root.children.forEachIndexed { index, view ->
                 (view as TextView).apply {
-                    text = daysOfWeek[index].getDisplayName(TextStyle.NARROW, Locale("ru"))
+                    text = daysOfWeek[index].getDisplayName(TextStyle.NARROW, Locale(LOCALE))
                     setTextSize(TypedValue.COMPLEX_UNIT_SP, TEXT_SIZE)
                     setTextColorRes(R.color.grey)
                 }
